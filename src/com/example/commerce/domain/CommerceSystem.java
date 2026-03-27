@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
-import java.util.stream.IntStream;
 
 public class CommerceSystem { // 프로그램 비즈니스 로직
     //커머스 플랫폼의 상품 관리 / 사용자 입력을 처리하기
@@ -23,55 +22,94 @@ public class CommerceSystem { // 프로그램 비즈니스 로직
     int choice = 0;
 
     public CommerceSystem() {
-//        categoryList.add(new Category("전자제품"));
-//        categoryList.add(new Category("의류"));
-//        categoryList.add(new Category("식품"));
-
-//        productList.add(new Product("Galaxy S25", 1200000, "최신 안드로이드 스마트폰", 20));
-//        productList.add(new Product("iPhone 16", 1350000, "Apple의 최신 스마트폰", 15));
-//        productList.add(new Product("MacBook Pro", 2400000, "M3 칩셋이 탑재된 노트북", 12));
-//        productList.add(new Product("AirPods Pro", 350000, "노이즈 캔슬링 무선 이어폰", 2));
+        this.categoryList = new ArrayList<>();
     }
 
     public void start() {
         while (true) {
+            int index = 1;
             category.viewCategory();
 
-            int index = 1;
-            System.out.println("[ 실시간 커머스 플랫폼 - 전자제품 ]");
-            for (Product product : productList) {
-                String formattedPrice = formatter.format(product.getPrice());
-                System.out.printf("%d. %-15s | %10s원 | %s%n",
-                        index++,
-                        product.getItem(),
-                        formattedPrice,
-                        product.getDescription());
-            }
-            System.out.println("0. 종료");
-            int input = sc.nextInt();
-            if (input == 0) {
-                System.out.println("프로그램을 종료합니다.");
-                break;
-            }
-            // else
+            System.out.println("categoryList.toString() - "
+                    + category.categoryList.toString());
+//            [전자제품, 의류, 식품]
+
+            try {
+                int input = sc.nextInt();
+                if (input == 1) {
+                    Category selectedCategory = category.categoryList.get(0);
+                    System.out.println("selectedCategory.toString() - "
+                            + selectedCategory);
+//                    // 전자제품
+
+                    // 전자제품의 상품리스트 어떻게?
+                    if (category.categoryList.get(0).equals(selectedCategory)) {
+                        // productList 출력
+                        System.out.println("[ 실시간 커머스 플랫폼 - " + selectedCategory + " ]");
+                        List<Product> productList = selectedCategory.getProductList();
+                        System.out.println(productList);
+                        for (Product product : productList) {
+                        String formattedPrice = formatter.format(product.getPrice());
+                        System.out.printf("%d. %-15s | %10s원 | %s%n",
+                                index++,
+                                product.getItem(),
+                                formattedPrice,
+                                product.getDescription());
+                    }
+                    System.out.println("0. 종료");
+                    }
+                    System.out.println(selectedCategory); // 전자제품
+                }
 
 
-            choice = input;
-            IntStream.range(0, productList.size())
-                    .filter(i -> i == choice - 1)
-                    .mapToObj(productList::get)
-                    .findFirst()
-                    .ifPresentOrElse(
-                            p -> {
-                                String price = formatter.format(p.getPrice());
-                                System.out.printf("선택한 상품: %s | %s원 | %s | 재고: %d개%n",
-                                        p.getItem(),
-                                        price,
-                                        p.getDescription(),
-                                        p.getQuantity());
-                            },
-                            () -> System.out.println("존재하지 않는 상품입니다.")
-                    );
+                for(Category category : categoryList) {
+                    System.out.println(categoryList.size());
+                }
+                if (input == 0) {
+                    System.out.println("프로그램을 종료합니다.");
+                    break;
+                }
+            } catch (IndexOutOfBoundsException e) {
+                System.out.println("빈 배열");
+            }
+
+//            for(; categoryList.size(); i++ ) {
+//                System.out.println(categoryList.get(i));
+//            }
+//            Category selectedCategory = categoryList.get(input - 1);
+//            System.out.println("[ 실시간 커머스 플랫폼 - " + selectedCategory + " ]");
+
+
+////            System.out.println("[ 실시간 커머스 플랫폼 - 전자제품 ]");
+//            for (Product product : productList) {
+//                String formattedPrice = formatter.format(product.getPrice());
+//                System.out.printf("%d. %-15s | %10s원 | %s%n",
+//                        index++,
+//                        product.getItem(),
+//                        formattedPrice,
+//                        product.getDescription());
+//            }
+//            System.out.println("0. 종료");
+//
+//            // else
+//
+//
+//            choice = input;
+//            IntStream.range(0, productList.size())
+//                    .filter(i -> i == choice - 1)
+//                    .mapToObj(productList::get)
+//                    .findFirst()
+//                    .ifPresentOrElse(
+//                            p -> {
+//                                String price = formatter.format(p.getPrice());
+//                                System.out.printf("선택한 상품: %s | %s원 | %s | 재고: %d개%n",
+//                                        p.getItem(),
+//                                        price,
+//                                        p.getDescription(),
+//                                        p.getQuantity());
+//                            },
+//                            () -> System.out.println("존재하지 않는 상품입니다.")
+//                    );
         }
     }
 }
