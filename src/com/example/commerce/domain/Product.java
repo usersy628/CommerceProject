@@ -3,14 +3,13 @@ package com.example.commerce.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Product { // 개별 상품 정보를 가지는 클래스 - 현재는 전자제품만
+public class Product { // 개별 상품 정보를 가지는 클래스
     // 속성
     // 상품명, 가격, 설명, 재고수량 필드 분할
     public String item;
     public int price;
     public String description;
     public int quantity;
-    List<Product> products = new ArrayList<>();
 
     // 생성자
     public Product(String item, int price, String description, int quantity) {
@@ -35,10 +34,6 @@ public class Product { // 개별 상품 정보를 가지는 클래스 - 현재�
         return quantity;
     }
 
-    public List<Product> getProducts() {
-        return products;
-    }
-
     // 세터
     public void setItem(String item) {
         this.item = item;
@@ -53,12 +48,8 @@ public class Product { // 개별 상품 정보를 가지는 클래스 - 현재�
         this.quantity = quantity;
     }
 
-    public void setProducts(List<Product> product) {
-        this.products = product;
-    }
-
     // 상품 추가
-    public void addProduct (Product product) {
-        products.add(product);
-    }
+//    public void addProduct (Product product) {
+//        products.add(product);
+//    }
 }
