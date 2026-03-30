@@ -48,8 +48,5 @@ public class Product { // 개별 상품 정보를 가지는 클래스
         this.quantity = quantity;
     }
 
-    // 상품 추가
-//    public void addProduct (Product product) {
-//        products.add(product);
-//    }
+
 }
