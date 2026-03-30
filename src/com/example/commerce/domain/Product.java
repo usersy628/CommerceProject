@@ -1,15 +1,12 @@
 package com.example.commerce.domain;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Product { // 개별 상품 정보를 가지는 클래스
     // 속성
     // 상품명, 가격, 설명, 재고수량 필드 분할
-    public String item;
-    public int price;
-    public String description;
-    public int quantity;
+    private String item;
+    private int price;
+    private String description;
+    private int quantity;
 
     // 생성자
     public Product(String item, int price, String description, int quantity) {
