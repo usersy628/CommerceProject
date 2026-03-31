@@ -6,14 +6,14 @@ public class Product { // 개별 상품 정보를 가지는 클래스
     private String item;
     private int price;
     private String description;
-    private int quantity;
+    private int stock;
 
     // 생성자
-    public Product(String item, int price, String description, int quantity) {
+    public Product(String item, int price, String description, int stock) {
         this.item = item;
         this.price = price;
         this.description = description;
-        this.quantity = quantity;
+        this.stock = stock;
     }
 
     // 기능
@@ -27,23 +27,17 @@ public class Product { // 개별 상품 정보를 가지는 클래스
     public String getDescription() {
         return description;
     }
-    public int getQuantity() {
-        return quantity;
+    public int getStock() {
+        return stock;
     }
 
     // 세터
-    public void setItem(String item) {
-        this.item = item;
-    }
-    public void setPrice(int price) {
-        this.price = price;
-    }
-    public void setDescription(String description) {
-        this.description = description;
-    }
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
-
+    @Override
+    public String toString() {
+        return getItem() + " " + getPrice() + " " + getDescription() + " " + getStock();
+    }
 }

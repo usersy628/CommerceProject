@@ -1,9 +1,13 @@
 package com.example.commerce.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Customer { // 고객관리
-    String customerName;
-    String customerEmail;
-    String customerGrade;
+    private String customerName;
+    private String customerEmail;
+    private String customerGrade;
+    private List<Product> cartList = new ArrayList<>();
 
     public Customer(String customerName, String customerEmail, String customerGrade) {
         this.customerName = customerName;
@@ -20,5 +24,4 @@ public class Customer { // 고객관리
     public String getCustomerGrade() {
         return customerGrade;
     }
-
 }
