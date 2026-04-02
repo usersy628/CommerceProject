@@ -14,11 +14,13 @@
 주문 완료 후 장바구니 초기화
 
 ### 🧱 설계 구조
+
 - Domain
 Product : 상품 정보 및 재고 관리
 Category : 카테고리별 상품 관리
 Cart : 장바구니 내 상품 단위
 Customer : 고객정보 관리
+
 - Controller
 CommerceSystem : 사용자 입력 및 흐름 제어
 
