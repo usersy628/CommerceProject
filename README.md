@@ -1,5 +1,5 @@
-## 🛒 Java Console Commerce System
-📌 프로젝트 소개
+# 🛒 Java Console Commerce System
+### 📌 프로젝트 소개
 
 본 프로젝트는 자바를 기반으로 구현한 콘솔 환경의 간단한 커머스 시스템입니다.
 
